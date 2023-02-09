@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<!-- ui css -->
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- ui js -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!-- ui js -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+  <link rel="stylesheet" href="css/all.min.css">
+  <script src="js/custom.js"></script>
+  <link rel="stylesheet" href="css/common.css">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Hotels.com</title>
+</head>
+<body>
+
+
+  <!-- wrap -->
+  <div id="wrap">
+    <div id="head_wrap" class="box_sha">
+    <header>
+      <div class="top_head">
+        <h1><a href="#"><img id="header_logo" src="img/hotels.comLogo.svg" alt="호텔스닷컴에 오신 걸 환영합니다."></a></h1>
+        <ul class="top_util">
+          <li><a href="#"><h2>로그인</h2></a></li>
+          <li><a href="#"><h2>도움말</h2></a></li>
+          <li><a href="#"><h2>내 여행</h2></a></li>
+          <li><a href="#"><span class="top_global_icon"><i class="fa-solid fa-earth-americas"></i></span></a></li>
+        </ul>
+      </div>
+    </header>
+    </div>
+    <div class="header_cont">
+      <div class="top_search">
+        <ul>
+          <li class="place">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="text">
+          </li>
+          <li class="days">
+            <i class="fa-regular fa-calendar"></i>
+            <input type="text" id="datepicker">
+          </li>
+          <li class="how_many">
+            <i class="fa-solid fa-user"></i>
+            <div class="how_text" id="adult">1
+            </div>
+          </li>
+            <!-- 팝업 -->
+          <div class="popup" id="how_many">
+            <!-- <div id="datepicker"></div> -->
+            <h2>인원수</h2>
+            <h3>객실1</h3>
+            <div class="adult">성인 
+              <div class="how_inside">
+                <input type='button' onclick='count("minus")' value='-'/>
+                <div id='result'>1</div>
+                <input type='button' onclick='count("plus")' value='+'/>
+              </div>
+            </div>
+            <div class="child">아동 
+              <div class="how_inside">
+                <input type='button' onclick='count("minus2")' value='-'/>
+                <div id='result2'>0</div>
+                <input type='button' onclick='count("plus2")' value='+'/>
+              </div>
+            </div>
+            <span>객실추가</span>
+            <button class="close">완료</button>
+          </div>
+          <li class="top_icon">
+            <i class="fa-solid fa-angle-right"></i>
+          </li>
+        </ul>
+      </div>
+      <div class="top_container">
+        <div class="top_paging_left"><a href="#"><i class="fa-solid fa-chevron-left"></i></a></div>
+        <div class="top_inBox">
+          <ul>
+            <li class="container_items">
+              <a href="#"><span>HOTEL</span></a>
+              <span class="bg hotel"></span>
+            </li>
+            <li class="container_items">
+              <a href="#"><span>HOSTEL</span></a>
+              <span class="bg hostel"></span>
+            </li>
+            <li class="container_items">
+              <a href="#">
+                <span>PENSION</span>
+              </a>
+              <span class="bg pension"></span>
+            </li>
+            <li class="container_items">
+              <a href="#">
+                <span>GUESTHOUSE</span>
+              </a>
+              <span class="bg guestHouse"></span>
+            </li>
+            <li class="container_items">
+              <a href="#">
+                <span>APART HOTEL</span>
+              </a>
+              <span class="bg apart"></span>
+            </li>
+          </ul>
+        </div><!-- inbox end-->
+        <div class="top_paging_right"><a href="#"><i class="fa-solid fa-chevron-right"></i></a></div>
+      </div>
+    </div>
+    <!-- ////////////////////////////////슬라이드 구간 -->
+    <div class="container">
+      <div class="slide swiper">
+        <div class="swiper-button-prev"></div>
+        <ul class="slide_box swiper-wrapper">
+          <li class="sale_sli swiper-slide"> <!-- 회원30%할인-->
+            <div class="slide_text">
+              <h3>최대 30% 할인까지</h3>
+              <h1>Hotels 회원 혜택</h1>
+              <p>Hotels.com의 리워드 회원은</p>
+              <p>전 세계, 수 천개의 호텔에서 평균 15% 할인</p>
+              <a class="slide_btn" href="#">지금 가입하기</a>
+            </div>
+            <span class="slide_bg"></span>
+          </li>
+          <li class="lot_sli swiper-slide"> <!--멋진호텔-->
+            <div class="slide_text">
+              <h3>당신이 찾던 여행지</h3>
+              <h1>멋지고 다양한 호텔</h1>
+              <p>전 세계, 수 많은 멋진 호텔들을 소개합니다.</p>
+              <a class="slide_btn" href="#">목록 보기</a>
+            </div>
+            <span class="slide_bg"></span>
+          </li>
+          <li class="vip_sli swiper-slide"> <!-- vip-->
+            <div class="slide_text">
+              <h3>강력한 VIP 혜택들</h3>
+              <h1>HOTELS의 VIP Access</h1>
+              <p>호텔스닷컴의 10,000여 개<br>
+                VIP Access 숙박 시설에서 설렘 가득한 혜택을 누려보세요</p>
+              <a class="slide_btn" href="#">지금 예약</a>
+            </div>
+              <span class="slide_bg"></span>
+          </li>
+          <li class="mobile_sli swiper-slide"> <!-- 모바일앱-->
+            <div class="slide_text">
+              <div class="4th_slide_text">
+                <h3>다양한 혜택이 가득</h3>
+                <h1>Hotels.com App</h1>
+                <p>10% 추가 할인의 혜택을 받을 수 있어요</p>
+                <p>10박을 숙박할 때마다 리워드 1박을 적립</p>
+                <p>언제 어디서나 검색 및 예약하고 할인까지</p>
+                <span><img class="Qr" src="img/hotelsQr.png" alt="QrCode"></span>
+              </div>
+              <a class="slide_btn" href="#"><span>다운 받기</span></a>
+            </div>
+              <span class="slide_bg"></span>
+          </li>
+        </ul>
+
+        <div class="swiper-button-next"></div>
+
+        <ul id="bottom_text">
+          <li><a href="#">회원 혜택</a></li>
+          <li><a href="#">다양한 호텔</a></li>
+          <li><a href="#">VIP Access</a></li>
+          <li><a href="#">Hotels.com APP</a></li>
+        </ul>
+      </div>
+      
+    </div><!--container end-->
+
+    <section class="pri">
+      <div class="pri_outbox">
+        <article class="pri_box">
+          <span><i class="fa-solid fa-hands-bubbles"></i></span>
+          <h2>보건 및 위생</h2>
+          <p>고객 투숙 간 공실 기간 적용 여부<br>소독제 사용</p>
+        </article>
+        <article class="pri_box">
+          <span>
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+          </span>
+          <h2>숙박 시설 제공품</h2>
+          <p>고객을 위한 무료 손 소독제 <br>개별 포장된 음식 옵션</p>
+        </article>
+        <article class="pri_box">
+          <span>
+            <i class="fa-solid fa-people-arrows"></i>          
+          </span>
+          <h2>사회적 거리두기</h2>
+          <p>비대면 체크인 / 체크아웃<br>기타 사회적 거리두기 조치</p>
+        </article>
+        <article class="pri_box">
+          <span>
+            <i class="fa-solid fa-house-circle-check"></i>
+          </span>
+          <h2>공식 보건 표준</h2>
+          <p>숙박 시설<br>법인 / 조직의 위생 지침 준수</p>
+        </article>        
+      </div>
+    </section>
+
+    <section class="today">
+      <h1>오늘의 여행</h1>
+      <div class="today_outbox">
+        <article class="today_box">
+          <a href="#"><img src="img/dokyo.webp" alt="오늘의 이미지입니다."></a>
+          <h2>도쿄</h2>
+          <p>하얀빛으로 수놓은 가로수와 트리 장식이 멋진 도쿄에서 연말연시를 맞이해 보세요. 도쿄 디즈니 리조트를 찾아가 환상적인 분위기 속에서 휴가를 즐기실 수도 있죠. 모든 노래가 캐럴과 같은 디즈니 음악을 들으며 아름다운 불꽃놀이를 즐기면 동화 속 주인공이 된 듯한 기분이 들 거예요.</p>
+        </article>
+        <article class="today_box">
+          <a href="#"><img src="img/danang.webp" alt="오늘의 이미지입니다."></a>
+          <h2>다낭</h2>
+          <p>겨울에도 온화한 날씨를 자랑하는 다낭은 세계적인 휴양지답게 연말연시를 파티처럼 맞이할 수 있는 도시예요. 다채로운 장식으로 꾸며진 레스토랑과 바까지 시내 어디에서나 설레는 분위기를 한껏 느낄 수 있죠. 핑크빛의 다낭 대성당은 다낭에서 연말연시를 맞이한다면 꼭 한 번 찾아가야 하는 곳이에요.</p>
+        </article>
+        <article class="today_box">
+          <a href="#"><img src="img/newyork.webp" alt="오늘의 이미지입니다."></a>
+          <h2>뉴욕</h2>
+          <p>뉴욕은 수많은 여행객 사이에서 연말연시 이벤트를 상징하는 곳으로 알려져 있어요. 뉴욕에서는 고전이 된 영화 ‘나 홀로 집에 2’ 촬영지를 찾아가 영화 속 주인공이 되어보세요. 케빈이 가족을 만나게 해달라고 소원을 빌던 록펠러 센터의 크리스마스트리를 방문하면 영화 속 장면들이 하나둘 스쳐 지나갈 거예요.</p>
+        </article>
+      </div>
+    </section>
+      
+    <div class="rewards_cont">
+      <div class="rewards_login">
+        <span class="login_img_box">
+          <img src="img/redchest.svg" alt="img_box">
+        </span>
+        <span class="ver_1px_line"></span>
+        <div class="rewards_login_text">
+          <h2><strong>Hotels.com</strong>Rewards</h2>
+          <p>회원가 이용! 10% 할인 혜택<br>
+            10박을 숙박할 때마다 리워드 1박<br>
+            전 세계 100만 개 이상 숙박 시설에서 리워드 적립</p>
+          <span class="buttons">
+            <button class="a">지금 가입</button>
+            <button class="b">로그인</button>
+          </span>
+        </div>
+      </div><!--rewards_login end-->
+
+      <div class="rewards_three">
+        <h1>간편하고 강력한 Reward 혜택</h1>
+        <ul>
+          <li>
+            <span class="rewards_icon">
+              <i class="fa-regular fa-calendar"></i>
+            </span>
+            <a href="#">
+              <h2>무료 취소</h2>
+              <p>
+                대부분의 호텔에서<br> 유연한 예약 옵션 제공
+              </p>
+            </a>
+          </li>
+          <li>
+            <span class="rewards_icon">
+              <i class="fa-solid fa-moon"></i>
+            </span>
+            <a href="#">
+              <h2>간편한 혜택</h2>
+              <p>
+                원하는 날짜에 원하는 곳을<br>예약하고 리워드 혜택까지!
+              </p>
+            </a>
+          </li>
+          <li>
+            <span class="rewards_icon">
+              <i class="fa-solid fa-tag"></i>
+            </span>
+            <a href="#">
+              <h2>즉시 할인</h2>
+              <p>
+                회원이라면? <br>    
+                10% 추가 할인 가능
+              </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div> <!--rewards_cont end-->
+    <div class="rec_cont">
+      <div class="rec_textBox">
+        <ul>
+          <li><a href="#">마감 임박 호텔</a></li>
+          <li><a href="#">풀빌라 숙소</a></li>
+          <li><a href="#">강원도 호텔</a></li>
+          <li><a href="#">경기도 팬션</a></li>
+          <li><a href="#">부산 호텔</a></li>
+        </ul>
+      </div>
+
+      <div class="rec_bigBox">
+        <div class="rec_article">
+          <div class="rec_top">
+            <img src="img/topsten.jpg" alt="topsten">
+          </div>
+          <div class="rec_bottom">
+            <h6>호텔 탑스텐 정돈진</h6>
+            <p>강원도 강릉시 옥계면 헌화로 455-34</p>
+            <p class="price"> 110,000<span>원~</span></p>
+          </div>
+        </div>
+        <div class="rec_article">
+          <div class="rec_top">
+            <img src="img/1.saintjohns.jpg" alt="saint">
+          </div>
+          <div class="rec_bottom">
+            <h6>강릉 세인트존스호텔</h6>
+            <p>강원도 강릉시 창해로 307</p>
+            <p class="price"> 118,800<span>원~</span></p>
+          </div>
+        </div>
+        <div class="rec_article">
+          <div class="rec_top">
+            <img src="img/1.sl.jpg" alt="sl">
+          </div>
+          <div class="rec_bottom">
+            <h6>SL호텔 강릉 </h6>
+            <p>강원도 강릉시 주문진읍 주문로 59
+            </p>
+            <p class="price"> 60,300<span>원~</span></p>
+          </div>
+        </div>
+        <div class="rec_article">
+          <div class="rec_top">
+            <img src="img/1.hightocean.jpg" alt="hi">
+          </div>
+          <div class="rec_bottom">
+            <h6>강릉 하이오션경포</h6>
+            <p>강원도 강릉시 경포로463번길 30-5
+            </p>
+            <p class="price"> 80,000<span>원~</span></p>
+          </div>
+        </div>
+        <div class="rec_article">
+          <div class="rec_top">
+            <img src="img/1.olympia.png" alt="oly">
+          </div>
+          <div class="rec_bottom">
+            <h6>강릉 올림피아 호텔</h6>
+            <p>강원도 강릉시 용지각길38번길 4
+            </p>
+            <p class="price"> 60,300<span>원~</span></p>
+          </div>
+        </div>
+        <div class="rec_article">
+          <div class="rec_top">
+            <img src="img/sunCruz.jpg" alt="sun">
+          </div>
+          <div class="rec_bottom">
+            <h6>정동진 썬크루즈 호텔</h6>
+            <p>강원도 강릉시 강동면 헌화로 950-39
+            </p>
+            <p class="price"> 275,000<span>원~</span></p>
+          </div>
+        </div>
+        <div class="rec_article">
+          <div class="rec_top">
+            <img src="img/1.confinens.jpg" alt="conf">
+          </div>
+          <div class="rec_bottom">
+            <h6>컨피네스 오션 스위트</h6>
+            <p>강원도 강릉시 사천면 진리항구2길 5
+            </p>
+            <p class="price"> 125,000<span>원~</span></p>
+          </div>
+        </div>
+        <div class="rec_article">
+          <div class="rec_top">
+            <img src="img/gunsan.jpg" alt="gunsan">
+          </div>
+          <div class="rec_bottom">
+            <h6>군산 호텔 은파팰리스
+            </h6>
+            <p>전라북도 군산시 은파순환길 20(나운동)
+            </p>
+            <p class="price"> 196,000<span>원~</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div id="footer_wrap">
+    <footer>
+      <ul class="foot_gnb">
+        <li>
+          <a href="#">지원</a>
+        </li>
+        <span>|</span>
+        <li>
+          <a href="#">자주하는 질문</a>
+        </li>
+        <span>|</span>
+        <li><a href="#">제휴사 및 미디어</a></li><span>|</span>
+        <li><a href="#">정책</a></li><span>|</span>
+        <li><a href="#">기타정보</a></li>
+      </ul>
+      <div class="foot_copy">
+        <p>* 일부 호텔은 체크인 24시간 이상 전에 취소해야 합니다. 자세한 내용은 사이트에서 확인해 주세요.
+        </p>
+        <p>Copytight 2022 Hotels.com, LP., Expedia Group 계열사. All rights reserved. <br>  Hotels.com 및 Hotels.com 로고는 Hotels.com, L.P.의 상표 또는 등록 상표입니다.</p>
+        <p>
+          트래블파트너익스체인지코리아 주식회사, 사업자등록번호: 821-88-01025
+          통신판매업신고번호 2015-서울종로-1067호 <br>소유자: 호텔스닷컴코리아 주식회사, 서울특별시 종로구 종로5길 7(청진동).<br>
+          사업자등록번호: 717-81-00091
+        </p>
+      </div>
+    </footer>
+  </div>
+  </div><!-- wrap end-->
+</body>
+</html>

@@ -1,0 +1,50 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+* { padding: 0; margin: 0; box-sizing: border-box;}
+a { display: block; color: inherit; text-decoration: none;}
+li { list-style: none;}
+span, img { display: block;}
+p { font-size: 13px;}
+h1 { font-size: 32px;}
+h2{ font-size: 24px;}
+h3 { font-size: 18px;}
+body { font-family: Noto Sans KR, dotum, '돋음', sans-serif;
+color: #111;}
+
+:root { --mainColor: #ab47bc; 
+  --lightColor: #df78ef;
+  --darkColor: #790e8b;
+  --pastelColor: #e1bee7; 
+  --pastelDarkColor: #af8eb5;
+  --pastelLightColor: #fff1ff;
+  --redColor: #ff5c46;
+} 
+
+/* header */
+#head_wrap { width: 100%; margin: 0 auto;}
+header{ width: 1300px; margin: 0 auto; }
+
+header div.top_head { width: 1300px; margin: 0 auto;}
+header div.top_head:after { content: ""; display: block; clear: both;}
+
+header h1 { width: 220px; height:70px; float:left;}
+header h1 img { display: block; height:70px; width: 220px;}
+header ul.top_util { width: 300px; float: right;}
+header ul.top_util li h2 { font-weight: 400; font-size: 14px; line-height: 70px; }
+header ul.top_util > li { width: calc(100%/4); text-align: center; line-height: 70px; float: left;}
+header ul.top_util > li:last-child { width: 50px; font-size: 14px;}
+
+
+
+/* footer */
+#footer_wrap { width: 100%; background-color: #ececec;}
+footer { width: 1300px; margin: 0 auto; font-size: 12px; color: #111; font-weight: 200; padding-top: 50px;}
+ul.foot_gnb { text-align: center;}
+  ul.foot_gnb li {  display: inline-flex; transition: all 0.2s;}
+  ul.foot_gnb li:hover { color:#fff;}
+  ul.foot_gnb span { display: inline-block;
+    width: 24px;
+    text-align: center;}
+div.foot_copy { text-align: center; height: 200px; margin-top: 30px;}
+div.foot_copy p:nth-of-type(1) { margin-bottom: 20px;}
